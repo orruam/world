@@ -1,0 +1,412 @@
+/* Estilos globais e reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Roboto Mono', monospace;
+  background-color: #a70000;
+  color: #FFFFFF;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  /* Removendo estilos duplicados e potencialmente conflitantes */
+  /* min-height: 100vh; */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+  /* font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; */
+  font-size: 16px; /* Defina um tamanho de fonte base */
+}
+
+header {
+  background: url('https://cpwebassets.codepen.io/assets/packs/profile-bg-optimized-a5ca8f46aca292507f629c62b09630ad.svg') no-repeat center center, linear-gradient(135deg, #ff0000 0%, #be0000 100%);
+  background-size: cover;
+  padding: 40px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+header::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(158, 0, 0, 0.2), transparent 70%);
+  animation: pulse 10s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+header h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+  color: #ef0000;
+  z-index: 1;
+  position: relative;
+}
+
+header p {
+  font-size: 1.2em;
+  color: #ffffff;
+  z-index: 1;
+  position: relative;
+}
+
+nav {
+  margin-top: 20px;
+  z-index: 1;
+  position: relative;
+}
+
+nav a {
+  margin: 0 15px;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1em;
+  transition: color 0.3s;
+  position: relative;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #00A4EF;
+  transition: width 0.3s;
+  margin: 0 auto;
+}
+
+nav a:hover {
+  color: #00A4EF;
+}
+
+nav a:hover::after {
+  width: 50%;
+}
+
+main {
+  padding: 60px 20px;
+  max-width: 100vw !important; /* Adicionado !important para priorizar */
+  margin: 0 auto;
+  background: #000c; /* Mantendo o background transparente */
+}
+
+section {
+  margin-bottom: 60px;
+}
+
+section h2 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  color: #00A4EF;
+  text-align: center;
+  position: relative;
+}
+
+section h2::after {
+  content: '';
+  display: block;
+  width: 50px;
+  height: 3px;
+  background: #00A4EF;
+  margin: 10px auto;
+  border-radius: 5px;
+}
+
+#about p,
+#experience p {
+  font-size: 1.1em;
+  color: #CCCCCC;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+#projects .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 40px;
+}
+
+.project-card {
+  background: #1A1A1A;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at center, rgba(0, 164, 239, 0.1), transparent 70%);
+  transition: opacity 0.3s;
+  opacity: 0;
+}
+
+.project-card:hover::before {
+  opacity: 1;
+}
+
+.project-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 164, 239, 0.2);
+}
+
+.project-card h3 {
+  margin-bottom: 10px;
+  color: #FFFFFF;
+  font-size: 1.5em;
+}
+
+.project-card a {
+  color: #00A4EF;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.project-card a:hover {
+  color: #0080C0;
+}
+
+#contact .contact-links {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.contact-links a {
+  color: #FFFFFF;
+  font-size: 2em;
+  transition: color 0.3s;
+}
+
+.contact-links a:hover {
+  color: #00A4EF;
+}
+
+footer {
+  background: #0D0D0D;
+  text-align: center;
+  padding: 20px;
+  color: #666666;
+  font-size: 0.9em;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2.5em;
+  }
+
+  section h2 {
+    font-size: 2em;
+  }
+}
+
+/* Estilos Uiverse.io */
+/* Mover esses estilos para ficarem juntos */
+body {
+  /* Repetindo algumas propriedades para garantir a aplicação */
+  width: 100%;
+  height: 100%;
+  --s: 200px; /* control the size */
+  --c1: #1d1d1d;
+  --c2: #4e4f51;
+  --c3: #3c3c3c;
+  background: repeating-conic-gradient(from 30deg, #0000 0 120deg, var(--c3) 0 180deg) calc(0.5 * var(--s)) calc(0.5 * var(--s) * 0.577), repeating-conic-gradient(from 30deg, var(--c1) 0 60deg, var(--c2) 0 120deg, var(--c3) 0 180deg);
+  background-size: var(--s) calc(var(--s) * 0.577);
+}
+
+/* Estilos para links na seção de música */
+#musica {
+  display: flex;
+  flex-direction: row; /* Garante que os itens fiquem em linha (padrão) */
+  justify-content: space-around; /* Espaçamento igualitário ao redor dos links */
+  align-items: flex-start; /* Alinha os itens ao topo (padrão) */
+  flex-wrap: wrap; /* Permite que os links quebrem para a próxima linha se não houver espaço */
+  /* Removendo estilos duplicados e potencialmente conflitantes */
+  /* col-bg: #FFC568; */
+  /* col-lttr: #763C8C; */
+  /* col-line: #FFFFFF; */
+  /* to-mobile: 520px; */
+}
+
+#musica a {
+  display: inline-block; /* Permite definir largura e altura, mas comporta-se como inline */
+  color: white;
+  text-decoration: none;
+  background-color: rgb(84, 0, 117);
+  width: 300px;
+  height: 70px;
+  line-height: 70px; /* Centraliza o texto verticalmente */
+  text-align: center;
+  margin-right: 10px; /* Opcional: Adiciona um espaço entre os links */
+  margin-bottom: 5px; /* Opcional: Adiciona um espaço abaixo dos links se eles quebrarem */
+  white-space: nowrap; /* Opcional: evita quebras de linha */
+}
+
+#musica a:hover {
+  background-color: rgb(180, 0, 0);
+}
+
+#musica br {
+  display: none; /* Remove as quebras de linha */
+}
+
+/* Mixin Sass (será ignorado pelo CSS padrão) */
+/* @mixin flex-center() {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+
+/* Tentativa de usar variáveis (serão ignoradas pelo CSS padrão) */
+/* :root {
+  --col-line: rgb(255, 255, 255);
+  --col-lttr: rgb(161, 1, 1);
+} */
+
+.line {
+  fill: none;
+  stroke: var(--col-line); /* Usando a variável CSS */
+  stroke-width: 8;
+  stroke-linecap: round;
+  stroke-miterlimit: 10;
+}
+
+.lttr {
+  fill: var(--col-lttr); /* Usando a variável CSS */
+}
+
+.sound {
+  position: fixed;
+  color: var(--col-lttr); /* Usando a variável CSS */
+  font-size: 1.6rem;
+  bottom: 1rem;
+  right: 1rem;
+  text-decoration: underline;
+  cursor: default;
+  z-index: 10; /* Garante que fique acima de outros elementos */
+}
+
+.sound--off {
+  text-decoration: line-through;
+}
+
+/* Estilos que pareciam estar duplicados ou fora de lugar */
+.container {
+  width: 50rem;
+  height: 20rem;
+  position: relative;
+  /* Removendo a tentativa de aplicar flex-center aqui, pois não está claro a qual elemento se refere */
+  /* display: flex; */
+  /* justify-content: center; */
+  /* align-items: center; */
+ background-color: #ff6868; 
+
+.svg-container {
+  z-index: 2;
+  position: absolute;
+}
+
+.mo-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* Media query duplicada e com estilos inconsistentes */
+@media screen and (max-width: 520px) {
+  body {
+    font-size: 14px; /* Estilo para telas menores */
+  }
+}
+#lista{
+  font-size: large;
+  color: #9c1313;
+  align-items: center;
+  margin: 100px;
+
+}
+.album-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Layout de grade responsivo */
+  gap: 10px;
+  padding: 20px;
+}
+
+.thumbnail-container {
+  cursor: pointer;
+  overflow: hidden; /* Garante que a imagem não ultrapasse */
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgb(170, 0, 0);
+}
+
+.thumbnail-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.3s ease-in-out;
+}
+
+.thumbnail-container:hover img {
+  transform: scale(1.05);
+}
+
+/* Estilos para a sobreposição em tela cheia */
+#fullscreen-overlay {
+  display: none; /* Inicialmente escondida */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(145, 0, 0, 0.9);
+  z-index: 999;
+  text-align: center;
+}
+
+#fullscreen-image {
+  max-width: 90%;
+  max-height: 90%;
+  margin-top: 5%;
+}
+
+.close-btn {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #ccc;
+}}
